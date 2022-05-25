@@ -35,4 +35,4 @@ jobs:
     - uses: actions/checkout@v3
       with:
         repository: sparkwj/deeptrader
-        token: ${{secrects.ACCESS_TOKEN}}
+        token: ${{secrets.ACCESS_TOKEN}}
