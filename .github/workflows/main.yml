@@ -57,6 +57,6 @@ jobs:
         file: ./.data/stocks.h5
         overwrite: true
 
-    -name: Predict
+    - name: Predict
       run: |
         make predict MODEL=mars3
