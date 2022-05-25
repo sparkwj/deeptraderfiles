@@ -36,3 +36,7 @@ jobs:
       with:
         repository: sparkwj/deeptrader
         token: ${{secrets.ACCESS_TOKEN}}
+
+    - name: Test
+      run: |
+        ls
