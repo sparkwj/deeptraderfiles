@@ -42,7 +42,7 @@ jobs:
         make stocks
 
     - name: Upload stocks.h5
-      id: upload-release-asset 
+      id: upload-release-asset
       uses: svenstaro/upload-release-action@2.2.1
       with:
         repo_name: sparkwj/stocks
