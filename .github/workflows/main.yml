@@ -33,5 +33,5 @@ jobs:
     #     pip install git+https://github.com/pyatom/pyatom/
     #     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - uses: actions/checkout@v3
-      respository: sparkwj/deeptrader
+      repository: sparkwj/deeptrader
       token: ${{secrects.ACCESS_TOKEN}}
