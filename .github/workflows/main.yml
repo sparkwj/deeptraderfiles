@@ -11,9 +11,11 @@ on:
     branches: [ main ]
   schedule:
     - cron:  '47 9 * * 1-5'
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      model:
+        description: 'Use model for predict'
+        required: true
 
 env:
   BRANCH: develop
