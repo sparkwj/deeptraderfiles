@@ -67,7 +67,7 @@ jobs:
 
     - name: Predict
       run: |
-        make predict MODEL=mars3
+        make predict MODEL=${{env.MODEL}}
 
     - name: Booking
       run: |
