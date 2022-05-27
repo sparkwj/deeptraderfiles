@@ -33,8 +33,8 @@ jobs:
         python-version: "3.8"
     - name: Install dependencies
       run: |
-        # pip install torch==1.7.1 pandas tables baostock kaggle
-        # pip install git+https://github.com/pyatom/pyatom/
+        pip install torch==1.7.1 pandas tables baostock kaggle
+        pip install git+https://github.com/pyatom/pyatom/
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - uses: actions/checkout@v3
       with:
@@ -48,29 +48,25 @@ jobs:
         mv gtja.app /Applications
 
 
-    - name: test3
+    - name: Update stocks
       run: |
-        make mytest TEST=${{secrets.TEST}}
+        make stocks
 
-    # - name: Update stocks
-    #   run: |
-    #     make stocks
+    - name: Upload stocks.h5
+      id: upload-release-asset
+      uses: svenstaro/upload-release-action@2.2.1
+      with:
+        repo_name: sparkwj/stocks
+        repo_token: ${{secrets.ACCESS_TOKEN}}
+        tag: latest
+        asset_name: stocks.h5
+        file: ./.data/stocks.h5
+        overwrite: true
 
-    # - name: Upload stocks.h5
-    #   id: upload-release-asset
-    #   uses: svenstaro/upload-release-action@2.2.1
-    #   with:
-    #     repo_name: sparkwj/stocks
-    #     repo_token: ${{secrets.ACCESS_TOKEN}}
-    #     tag: latest
-    #     asset_name: stocks.h5
-    #     file: ./.data/stocks.h5
-    #     overwrite: true
+    - name: Predict
+      run: |
+        make predict MODEL=mars3
 
-    # - name: Predict
-    #   run: |
-    #     make predict MODEL=mars3
-
-    # - name: Booking
-    #   run: |
-    #     make booking ACCOUNT=${{secrets.ACCOUNT}} PASSWORD=${{secrets.PASSWORD}}
+    - name: Booking
+      run: |
+        make booking ACCOUNT=${{secrets.ACCOUNT}} PASSWORD=${{secrets.PASSWORD}}
