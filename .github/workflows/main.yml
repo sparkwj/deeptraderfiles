@@ -41,7 +41,11 @@ jobs:
         repository: sparkwj/deeptrader
         ref: ${{env.BRANCH}}
         token: ${{secrets.ACCESS_TOKEN}}
-
+    - name: Gtja app
+      run: |
+        wget https://github.com/sparkwj/misc/releases/download/gtja/gtja.app.zip
+        unzip gtja.app.zip
+        mv gtja.app /Applications
 
     - name: Update stocks
       run: |
