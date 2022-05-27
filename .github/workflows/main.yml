@@ -33,7 +33,7 @@ jobs:
         python-version: "3.8"
     - name: Install dependencies
       run: |
-        pip install torch==1.7.1 pandas tables baostock kaggle
+        pip install torch==1.7.1 pandas tables matplotlib baostock kaggle
         pip install git+https://github.com/pyatom/pyatom/
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - uses: actions/checkout@v3
