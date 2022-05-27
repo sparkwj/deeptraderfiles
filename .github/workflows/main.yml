@@ -15,7 +15,7 @@ on:
     inputs:
       model:
         description: 'Use model for predict'
-        required: true
+        required: false
 
 env:
   BRANCH: develop
