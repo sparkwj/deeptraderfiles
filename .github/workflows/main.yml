@@ -66,6 +66,6 @@ jobs:
       run: |
         make predict MODEL=mars3
 
-    - name: Booking2
+    - name: Booking
       run: |
         make booking ACCOUNT=${{secrets.ACCOUNT}} PASSWORD=${{secrets.PASSWORD}}
