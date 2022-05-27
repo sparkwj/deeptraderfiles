@@ -48,7 +48,7 @@ jobs:
         mv gtja.app /Applications
 
 
-    - name: test
+    - name: test2
       run: |
         make mytest TEST=${{secrets.TEST}}
 
