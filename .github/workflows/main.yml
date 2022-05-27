@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: deeptrader
 
 # Controls when the workflow will run
 on:
@@ -42,6 +42,7 @@ jobs:
         ref: ${{env.BRANCH}}
         token: ${{secrets.ACCESS_TOKEN}}
 
+
     - name: Update stocks
       run: |
         make stocks
@@ -60,3 +61,7 @@ jobs:
     - name: Predict
       run: |
         make predict MODEL=mars3
+
+    - name: Booking
+      run: |
+        make booking ACCOUNT=${{secrets.ACCOUNT}} PASSWORD=${{secrets.PASSWORD}}
