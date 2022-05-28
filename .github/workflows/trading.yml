@@ -31,7 +31,7 @@ jobs:
         python-version: "3.8"
     - name: Install dependencies
       run: |
-        pip install pandas tables
+        pip install pandas tables baostock
         pip install git+https://github.com/pyatom/pyatom/
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - uses: actions/checkout@v3
