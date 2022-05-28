@@ -48,5 +48,5 @@ jobs:
     - name: Make money
       run: |
         make ghdown name=book.csv
-        make money ACCOUNT=$ACCOUNT PASSWORD=$PASSWORD
+        make money
         make dist name=book.csv
