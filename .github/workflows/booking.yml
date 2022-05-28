@@ -61,7 +61,7 @@ jobs:
 
     - name: Predict
       run: |
-        make predict MODEL=${{env.MODEL}}
+        make predict
         make dist name=results.h5
 
     - name: Booking
