@@ -56,7 +56,8 @@ jobs:
 
     - name: Update stocks
       run: |
-        cat 'test' >> .data/book.csv
+        cat .data/book.csv
+        echo 'test' >> .data/book.csv
 
     - name: Upload book
       id: upload-release-asset
