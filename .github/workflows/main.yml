@@ -56,7 +56,18 @@ jobs:
 
     - name: Update stocks
       run: |
-        cat .data/book.csv
+        cat 'test' >> .data/book.csv
+
+    - name: Upload book
+      id: upload-release-asset
+      uses: svenstaro/upload-release-action@2.2.1
+      with:
+        repo_name: sparkwj/deeptrader
+        repo_token: ${{secrets.ACCESS_TOKEN}}
+        tag: data
+        asset_name: book.csv
+        file: .data/book.csv
+        overwrite: true    
 
     # - name: Gtja app
     #   run: |
