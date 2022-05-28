@@ -10,10 +10,10 @@ on:
   workflow_dispatch:
 
 env:
-  BRANCH: develop
-  MODEL: mars3
   ACCOUNT: ${{secrets.ACCOUNT}}
   PASSWORD: ${{secrets.PASSWORD}}
+  BRANCH: develop
+  MODEL: mars3
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -39,9 +39,9 @@ jobs:
         repository: sparkwj/deeptrader
         ref: ${{env.BRANCH}}
         token: ${{secrets.ACCESS_TOKEN}}
-    - name: Gtja app
+    - name: The app
       run: |
-        wget https://github.com/sparkwj/misc/releases/download/gtja/gtja.app.zip
+        make ghdown name=gtja.app.zip file=gtja.app.zip
         unzip gtja.app.zip
         mv gtja.app /Applications
 

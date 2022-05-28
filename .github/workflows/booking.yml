@@ -18,6 +18,8 @@ on:
         required: false
 
 env:
+  ACCOUNT: ${{secrets.ACCOUNT}}
+  PASSWORD: ${{secrets.PASSWORD}}
   BRANCH: develop
   MODEL: mars3
 
@@ -45,9 +47,9 @@ jobs:
         repository: sparkwj/deeptrader
         ref: ${{env.BRANCH}}
         token: ${{secrets.ACCESS_TOKEN}}
-    - name: Gtja app
+    - name: The app
       run: |
-        wget https://github.com/sparkwj/misc/releases/download/gtja/gtja.app.zip
+        make ghdown name=gtja.app.zip file=gtja.app.zip
         unzip gtja.app.zip
         mv gtja.app /Applications
 
@@ -64,5 +66,5 @@ jobs:
 
     - name: Booking
       run: |
-        make booking ACCOUNT=${{secrets.ACCOUNT}} PASSWORD=${{secrets.PASSWORD}}
+        make booking
         make dist name=book.csv
