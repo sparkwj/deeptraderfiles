@@ -65,17 +65,7 @@ jobs:
     - name: Update stocks
       run: |
         make stocks
-
-    - name: Upload stocks.h5
-      id: upload-release-asset
-      uses: svenstaro/upload-release-action@2.2.1
-      with:
-        repo_name: sparkwj/stocks
-        repo_token: ${{secrets.ACCESS_TOKEN}}
-        tag: latest
-        asset_name: stocks.h5
-        file: ./.data/stocks.h5
-        overwrite: true
+        make dist name=stocks.h5
 
     - name: Predict
       run: |
@@ -84,14 +74,5 @@ jobs:
     - name: Booking
       run: |
         make booking ACCOUNT=${{secrets.ACCOUNT}} PASSWORD=${{secrets.PASSWORD}}
-
-    - name: Upload book
-      id: upload-release-asset
-      uses: svenstaro/upload-release-action@2.2.1
-      with:
-        repo_name: sparkwj/deeptrader
-        repo_token: ${{secrets.ACCESS_TOKEN}}
-        tag: data
-        asset_name: book.csv
-        file: .data/book.csv
-        overwrite: true
+        make dist name=book.csv
+        
