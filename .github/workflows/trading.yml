@@ -50,3 +50,8 @@ jobs:
         make ghdown name=book.csv
         make money
         make dist name=book.csv
+
+    - name: Save log
+      run: |
+        make dist name=deeptrader.log
+        

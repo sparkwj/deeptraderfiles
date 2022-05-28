@@ -66,5 +66,10 @@ jobs:
 
     - name: Booking
       run: |
+        make ghdown name=book.csv
         make booking
         make dist name=book.csv
+
+    - name: Save log
+      run: |
+        make dist name=deeptrader.log
