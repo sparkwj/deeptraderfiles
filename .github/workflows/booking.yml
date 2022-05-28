@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: deeptrader
+name: booking
 
 # Controls when the workflow will run
 on:
@@ -45,16 +45,6 @@ jobs:
         repository: sparkwj/deeptrader
         ref: ${{env.BRANCH}}
         token: ${{secrets.ACCESS_TOKEN}}
-
-    # - name: Download book
-    #   uses: robinraju/release-downloader@v1.3
-    #   with:
-    #     repository: sparkwj/deeptrader
-    #     tag: data
-    #     fileName: book.csv
-    #     out-file-path: .data
-    #     token: ${{secrets.ACCESS_TOKEN}}
-
     - name: Gtja app
       run: |
         wget https://github.com/sparkwj/misc/releases/download/gtja/gtja.app.zip
