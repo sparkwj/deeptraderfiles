@@ -70,9 +70,9 @@ jobs:
     - name: Predict
       run: |
         make predict MODEL=${{env.MODEL}}
+        make dist name=results.h5
 
     - name: Booking
       run: |
         make booking ACCOUNT=${{secrets.ACCOUNT}} PASSWORD=${{secrets.PASSWORD}}
         make dist name=book.csv
-        
