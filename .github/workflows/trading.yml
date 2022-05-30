@@ -53,6 +53,7 @@ jobs:
         make money
         make dist name=book.csv
         make dist name=portfolio.csv
+        make dist name=screen.png
 
     - name: Save log
       run: |
