@@ -1,30 +1,15 @@
-name: cleaning
+name: cleanup
 on:
-  schedule:
-    - cron: '27 0 1 * *'
   workflow_dispatch:
-    inputs:
-      days:
-        description: 'Number of days.'
-        required: true
-        default: 1
-      minimum_runs:
-        description: 'The minimum runs to keep for each workflow.'
-        required: true
-        default: 1
-      delete_workflow_pattern:
-        description: 'The name of the workflow. if not set then it will target all workflows.'
-        required: false
-
+  schedule:
+    - cron: '0 */2 * * *'
 jobs:
-  del_runs:
+  cleanup:
     runs-on: ubuntu-latest
     steps:
-      - name: Delete workflow runs
-        uses: Mattraks/delete-workflow-runs@v2
+      - name: clean workflow runs
+        uses: boredland/action-purge-workflow-runs@main
         with:
-          token: ${{ github.token }}
-          repository: ${{ github.repository }}
-          retain_days: ${{ github.event.inputs.days }}
-          keep_minimum_runs: ${{ github.event.inputs.minimum_runs }}
-          delete_workflow_pattern: ${{ github.event.inputs.delete_workflow_pattern }}
+          days-old: 0
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
