@@ -60,6 +60,7 @@ jobs:
       run: |
         make stocks
         make dist name=stocks.h5
+        echo 'finish update stocks'
 
     - name: Predict
       run: |
