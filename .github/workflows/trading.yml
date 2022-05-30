@@ -10,6 +10,7 @@ on:
   workflow_dispatch:
 
 env:
+  PRODUCTION: true
   ACCOUNT: ${{secrets.ACCOUNT}}
   PASSWORD: ${{secrets.PASSWORD}}
   BRANCH: develop
