@@ -24,8 +24,10 @@ jobs:
       id: check
       run: |
         if curl -s 'http://qt.gtimg.cn/?q=marketStat' | iconv -f gbk -t utf-8 | grep -q 'SH_close_已收盘'; then
+          echo 1
           echo "::set-output name=flag::true"
         else
+          echo 2
           echo "::set-output name=flag::false"
         fi
 
@@ -35,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: check-if-trading-day
     # Steps represent a sequence of tasks that will be executed as part of the job
-    if: ${{ needs.check-if-trading-day.outputs.falg == 'false' }}
+    if: ${{ needs.check-if-trading-day.outputs.flag == 'true' }}
     steps:
 
     - name: Step 1
