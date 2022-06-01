@@ -39,7 +39,7 @@ jobs:
     - name: Step 1
       run: |
         echo 'step 1'
-        echo ${{github.event.event_type}}
+        echo ${{github.event}}
         # exit 1
 
     - name: Step 2
