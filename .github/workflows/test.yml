@@ -35,12 +35,12 @@ jobs:
     runs-on: macOS-latest
     needs: if-trading-day
     # Steps represent a sequence of tasks that will be executed as part of the job
-    # if: ${{ needs.check-if-trading-day.outputs.flag == 'true' }}
+    if: ${{ needs.if-trading-day.outputs.flag == 'true' }}
     steps:
 
     - name: Step 1
       run: |
-        echo ${{ needs.check-if-trading-day.outputs.flag }}
+        echo ${{ needs.if-trading-day.outputs.flag }}
         echo 'step 1'
 
     - name: Step 2
