@@ -17,15 +17,18 @@ jobs:
   check-if-trading-day:
     runs-on: ubuntu-latest
     flag: ${{steps.check.outputs.flag}}
+
     steps:
-      - name: Check
-      - id: check
-      run: |
-        if curl -s 'http://qt.gtimg.cn/?q=marketStat' | iconv -f gbk -t utf-8 | grep -q 'SH_close_已收盘'; then
-          echo "::set-output name=flag::true"
-        else
-          echo "::set-output name=flag::false"
-        fi
+
+    - name: Check
+    - id: check
+    run: |
+      if curl -s 'http://qt.gtimg.cn/?q=marketStat' | iconv -f gbk -t utf-8 | grep -q 'SH_close_已收盘'; then
+        echo "::set-output name=flag::true"
+      else
+        echo "::set-output name=flag::false"
+      fi
+
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
