@@ -17,7 +17,7 @@ jobs:
   if-trading-day:
     runs-on: ubuntu-latest
     outputs:
-      flag: ${{steps.check.outputs.flag}}
+      flag: 555
 
     steps:
     - name: Check
@@ -41,7 +41,7 @@ jobs:
     - name: Step 1
       run: |
         echo 'step 1'
-        echo ${{github.event.client_payload.trading_day}}
+        echo ${{needs.if-trading-day.outputs.flag}}
         # exit 1
 
     - name: Step 2
