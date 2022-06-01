@@ -12,17 +12,19 @@ on:
 
 
 env:
-  CHECK_TRADING_DAY: ${{!github.event.client_payload.no_check_trading_day}}
+  check_trading_day: ${{!github.event.client_payload.no_check_trading_day}}
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  if-trading-day:
-    runs-on: ubuntu-latest
-    outputs:
-      flag: 555
 
+  # This workflow contains a single job called "build"
+  trade:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+
     - name: Check
       id: check
       if: false
@@ -33,18 +35,10 @@ jobs:
           echo "::set-output name=flag::false"
         fi
 
-  # This workflow contains a single job called "build"
-  trade:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    needs: if-trading-day
-    steps:
-
     - name: Step 1
       run: |
         echo 'step 1'
-        echo ${{env.CHECK_TRADING_DAY}}
+        echo ${{env.check_trading_day}}
         # exit 1
 
     - name: Step 2
