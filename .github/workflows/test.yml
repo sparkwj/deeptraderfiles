@@ -3,7 +3,7 @@
 name: test
 
 # Controls when the workflow will run
-on:
+on: [push]
   # Triggers the workflow on push or pull request events but only for the main branch
   repository_dispatch:
     types: test
@@ -17,11 +17,11 @@ jobs:
     runs-on: macos-10.15
 
     # Steps represent a sequence of tasks that will be executed as part of the job
+    if: curl -s 'http://qt.gtimg.cn/?q=marketStat' | iconv -f gbk -t utf-8 | grep -q 'SH_close_已收盘'
     steps:
 
     - name: Step 1
       run: |
-        if curl -s 'http://qt.gtimg.cn/?q=marketStat' | iconv -f gbk -t utf-8 | grep -q 'SH_close_已收盘'; then exit 1; fi
         echo 'step 1'
 
     - name: Step 2
