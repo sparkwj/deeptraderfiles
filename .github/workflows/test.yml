@@ -12,7 +12,7 @@ on:
 
 
 env:
-  TRADING_DAY: ${{$(echo 33)}}
+  TRADING_DAY: ${{echo 33)}}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -27,7 +27,7 @@ jobs:
 
     - name: Step 1
       run: |
-        echo ${{evn.TRADING_DAY}}
+        echo ${{env.TRADING_DAY}}
         echo 'step 1'
 
     - name: Step 2
