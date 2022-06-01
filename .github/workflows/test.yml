@@ -39,7 +39,7 @@ jobs:
     - name: Step 1
       run: |
         echo 'step 1'
-        echo ${{github.event}}
+        echo ${{github.event.client_payload.trading_day}}
         # exit 1
 
     - name: Step 2
