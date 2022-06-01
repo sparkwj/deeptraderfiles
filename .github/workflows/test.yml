@@ -25,7 +25,7 @@ jobs:
       run: |
         if curl -s 'http://qt.gtimg.cn/?q=marketStat' | iconv -f gbk -t utf-8 | grep -q 'SH_close_已收盘'; then
           echo 1
-          echo "::set-output name=flag::false"
+          echo "::set-output name=flag::true"
         else
           echo 2
           echo "::set-output name=flag::false"
@@ -34,7 +34,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
     needs: check-if-trading-day
     # Steps represent a sequence of tasks that will be executed as part of the job
     if: ${{ needs.check-if-trading-day.outputs.flag == 'true' }}
