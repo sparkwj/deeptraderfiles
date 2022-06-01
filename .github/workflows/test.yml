@@ -14,20 +14,20 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  if-trading-day:
-    runs-on: ubuntu-latest
-    outputs:
-      flag: ${{steps.check.outputs.flag}}
+  # if-trading-day:
+  #   runs-on: ubuntu-latest
+  #   outputs:
+  #     flag: ${{steps.check.outputs.flag}}
 
-    steps:
-    - name: Check
-      id: check
-      run: |
-        if curl -s 'http://qt.gtimg.cn/?q=marketStat' | iconv -f gbk -t utf-8 | grep -q 'SH_close_已收盘'; then
-          echo "::set-output name=flag::true"
-        else
-          echo "::set-output name=flag::false"
-        fi
+  #   steps:
+  #   - name: Check
+  #     id: check
+  #     run: |
+  #       if curl -s 'http://qt.gtimg.cn/?q=marketStat' | iconv -f gbk -t utf-8 | grep -q 'SH_close_已收盘'; then
+  #         echo "::set-output name=flag::true"
+  #       else
+  #         echo "::set-output name=flag::false"
+  #       fi
 
   # This workflow contains a single job called "build"
   trade:
@@ -40,8 +40,8 @@ jobs:
 
     - name: Step 1
       run: |
-        echo ${{ needs.if-trading-day.outputs.flag }}
         echo 'step 1'
+        exit
 
     - name: Step 2
       run: |
