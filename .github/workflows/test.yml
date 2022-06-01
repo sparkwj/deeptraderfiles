@@ -14,7 +14,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  check-if-trading-day:
+  check if-trading-day:
     runs-on: ubuntu-latest
     outputs:
       flag: ${{steps.check.outputs.flag}}
