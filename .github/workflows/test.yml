@@ -33,7 +33,7 @@ jobs:
   trade:
     # The type of runner that the job will run on
     runs-on: macOS-latest
-    needs: check-if-trading-day
+    needs: if-trading-day
     # Steps represent a sequence of tasks that will be executed as part of the job
     if: ${{ needs.check-if-trading-day.outputs.flag == 'true' }}
     steps:
