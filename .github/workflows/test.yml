@@ -7,7 +7,7 @@ on:
   push:
   # Triggers the workflow on push or pull request events but only for the main branch
   repository_dispatch:
-    types: test
+    types: [test, cron-test]
   workflow_dispatch:
 
 
@@ -39,7 +39,8 @@ jobs:
     - name: Step 1
       run: |
         echo 'step 1'
-        exit 1
+        echo ${{github.event.event_type}}
+        # exit 1
 
     - name: Step 2
       run: |
