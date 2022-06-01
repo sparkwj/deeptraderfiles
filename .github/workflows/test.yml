@@ -21,7 +21,7 @@ jobs:
 
     - name: Step 1
       run: |
-        if curl -s 'http://qt.gtimg.cn/?q=marketStat' | iconv -f gbk -t utf-8 | grep -q 'SH_close_已收盘'; then exit; fi
+        if curl -s 'http://qt.gtimg.cn/?q=marketStat' | iconv -f gbk -t utf-8 | grep -q 'SH_close_已收盘'; then exit 1; fi
         echo 'step 1'
 
     - name: Step 2
