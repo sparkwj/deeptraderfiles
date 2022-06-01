@@ -24,10 +24,8 @@ jobs:
       id: check
       run: |
         if curl -s 'http://qt.gtimg.cn/?q=marketStat' | iconv -f gbk -t utf-8 | grep -q 'SH_close_已收盘'; then
-          echo 1
           echo "::set-output name=flag::true"
         else
-          echo 2
           echo "::set-output name=flag::false"
         fi
 
