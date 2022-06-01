@@ -19,7 +19,7 @@ env:
   PASSWORD: ${{secrets.PASSWORD}}
   BRANCH: develop
   MODEL: mars3
-  MAILCC: sparkwj@gmail.com
+  MAILCC: sparkwj@gmail.com;319918@qq.com
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
