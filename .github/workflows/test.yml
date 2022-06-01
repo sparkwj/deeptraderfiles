@@ -19,10 +19,10 @@ jobs:
     outputs:
       flag: ${{steps.check.outputs.flag}}
 
-    if: false
     steps:
     - name: Check
       id: check
+      if: false
       run: |
         if curl -s 'http://qt.gtimg.cn/?q=marketStat' | iconv -f gbk -t utf-8 | grep -q 'SH_close_已收盘'; then
           echo "::set-output name=flag::true"
