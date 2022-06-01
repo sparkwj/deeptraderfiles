@@ -10,6 +10,10 @@ on:
     types: test
   workflow_dispatch:
 
+
+env:
+  TRADING_DAY: ${{$(echo 33)}}
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -23,6 +27,7 @@ jobs:
 
     - name: Step 1
       run: |
+        echo ${{evn.TRADING_DAY}}
         echo 'step 1'
 
     - name: Step 2
