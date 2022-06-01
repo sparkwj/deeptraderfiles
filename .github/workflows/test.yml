@@ -11,6 +11,9 @@ on:
   workflow_dispatch:
 
 
+env:
+  CHECK_TRADING_DAY: ! ${{github.event.client_payload.no_check_trading_day}}
+
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -41,7 +44,7 @@ jobs:
     - name: Step 1
       run: |
         echo 'step 1'
-        echo ${{needs.if-trading-day.outputs.flag}}
+        echo ${{env.CHECK_TRADING_DAY}}
         # exit 1
 
     - name: Step 2
