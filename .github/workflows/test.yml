@@ -16,7 +16,8 @@ on:
 jobs:
   check-if-trading-day:
     runs-on: ubuntu-latest
-    flag: ${{steps.check.outputs.flag}}
+    outputs:
+      flag: ${{steps.check.outputs.flag}}
 
     steps:
     - name: Check
