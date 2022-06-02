@@ -29,7 +29,7 @@ jobs:
       run: |
         echo 'step 1'
         if ${{github.event.client_payload.mailcc}}; then
-          echo "mailcc=${{github.event.client_payload.mailcc}}" >> $GITHUB_ENV
+          echo "mailcc=${{ github.event.client_payload.mailcc }}" >> $GITHUB_ENV
         fi
 
     - name: Step 2
