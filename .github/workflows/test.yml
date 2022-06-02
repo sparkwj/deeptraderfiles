@@ -12,7 +12,7 @@ on:
 
 
 env:
-  check_trading_day: ${{github.event.client_payload.mailcc}} || "aaaa"
+  check_trading_day:  "aaaa" || ${{github.event.client_payload.mailcc}}
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
