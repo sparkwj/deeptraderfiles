@@ -52,7 +52,7 @@ jobs:
         mv gtja.app /Applications
     - name: Set env
       run: |
-        if [[ ! "${{github.event.client_payload.MAILCC}}" == "" ]]; then echo "MAILCC=${{github.event.client_payload.MAILCC}}" >> $GITHUB_ENV;fi
+        if [[ ! "${{github.event.client_payload.env}}" == "" ]]; then echo "${{github.event.client_payload.env}}" >> $GITHUB_ENV; fi
 
 
     - name: Update stocks
