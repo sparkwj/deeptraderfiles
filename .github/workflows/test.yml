@@ -12,7 +12,7 @@ on:
 
 
 env:
-  mailcc: 'abc'
+  MAILCC: 'abc'
   var2: 'abc'
 
 
@@ -35,5 +35,5 @@ jobs:
     - name: Step 2
       run: |
         echo 'step 2'
-        echo ${{env.mailcc}}
+        echo ${{env.MAILCC}}
         echo ${{env.var2}}
