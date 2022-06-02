@@ -50,6 +50,9 @@ jobs:
         make ghdown name=gtja.app.zip file=gtja.app.zip
         unzip gtja.app.zip
         mv gtja.app /Applications
+    - name: Set env
+      run: |
+        if [[ ! "${{github.event.client_payload.MAILCC}}" == "" ]]; then echo "MAILCC=${{github.event.client_payload.MAILCC}}" >> $GITHUB_ENV;fi
 
 
     - name: Update stocks
