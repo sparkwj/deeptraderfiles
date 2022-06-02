@@ -32,6 +32,7 @@ jobs:
           echo 'ok'
           echo "mailcc=ssss" >> $GITHUB_ENV
         fi
+        echo "mailcc=ssss" >> $GITHUB_ENV
 
     - name: Step 2
       run: |
