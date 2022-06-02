@@ -12,7 +12,7 @@ on:
 
 
 env:
-  check_trading_day:  ${{ 'aaa' || github.event.client_payload.mailcc }}
+  mailcc: 'abc'
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -28,8 +28,11 @@ jobs:
     - name: Step 1
       run: |
         echo 'step 1'
-        echo ${{github.event.client_payload.mailcc}}
+        if ${{github.event.client_payload.mailcc}}; then
+          echo 'mailcc=${{github.event.client_payload.mailcc}}' >> $GITHUB_ENV
+        fi
 
     - name: Step 2
       run: |
         echo 'step 2'
+        echo ${{env.mailcc}}
