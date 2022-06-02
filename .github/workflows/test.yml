@@ -28,11 +28,11 @@ jobs:
     - name: Step 1
       run: |
         echo 'step 1'
-        if [ "${{github.event.client_payload.mailcc}}"=="" ]; then
+        echo "${{github.event.client_payload.mailcc}}"
+        if [ ! ${{github.event.client_payload.mailcc}}=="" ]; then
           echo 'ok'
           echo "mailcc=ssss" >> $GITHUB_ENV
         fi
-        echo "mailcc=ssss" >> $GITHUB_ENV
 
     - name: Step 2
       run: |
