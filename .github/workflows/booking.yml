@@ -74,6 +74,12 @@ jobs:
         make dist name=book.csv
         make dist name=portfolio.csv
 
+    - name: Backtrade
+      run: |
+        make backtrade
+        make dist name=backtrade.json
+        make dist name=backtrade.png
+
     - name: Save log
       run: |
         make dist name=deeptrader.log
