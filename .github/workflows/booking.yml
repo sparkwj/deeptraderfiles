@@ -18,7 +18,7 @@ env:
   ACCOUNT: ${{secrets.ACCOUNT}}
   PASSWORD: ${{secrets.PASSWORD}}
   BRANCH: develop
-  MODEL: mars3
+  MODEL: saturn
   MAILCC: ${{secrets.MAILCC}}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
