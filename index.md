@@ -2,7 +2,7 @@
 layout: default
 ---
 
-![Branching](https://github.com/sparkwj/stocks/releases/download/latest/backtrade.png)
+![Branching](https://github.com/sparkwj/stocks/releases/download/latest/backtrade_test.png)
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
