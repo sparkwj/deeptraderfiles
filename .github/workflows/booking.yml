@@ -30,7 +30,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-
+    - name: Set up timezone
+      uses: szenius/set-timezone@v1.0
+      with:
+        timezoneMacos: "Asia/Shanghai"
     - name: Set up Python 3.9
       uses: actions/setup-python@v2
       with:
