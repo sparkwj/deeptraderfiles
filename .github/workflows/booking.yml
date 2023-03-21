@@ -38,19 +38,20 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: "3.9"
-    - name: Install dependencies
-      run: |
-        pip install torch==1.7.1 pandas tables matplotlib baostock kaggle plotext
-        pip install git+https://github.com/pyatom/pyatom/
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Checkout code
     - uses: actions/checkout@v3
       with:
         repository: sparkwj/deeptrader
         ref: ${{env.BRANCH}}
         token: ${{secrets.ACCESS_TOKEN}}
+    - name: Install dependencies
+      run: |
+        pip install torch==1.7.1 pandas tables matplotlib baostock kaggle plotext
+        pip install git+https://github.com/pyatom/pyatom/
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        pip install -e .
     - name: Setup app
       run: |
-        pip install -e .
         make ghdown name=gtja.app.zip file=gtja.app.zip
         unzip gtja.app.zip
         mv gtja.app /Applications
