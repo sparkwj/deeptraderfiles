@@ -17,9 +17,9 @@ env:
   PRODUCTION: true
   ACCOUNT: ${{secrets.ACCOUNT}}
   PASSWORD: ${{secrets.PASSWORD}}
-  BRANCH: develop
+  BRANCH: refactor2023
   MODEL: saturn
-  MAILCC: ${{secrets.MAILCC}}
+  MAILCC: ${{vars.MAILCC}}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
