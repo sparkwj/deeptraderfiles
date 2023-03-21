@@ -66,13 +66,13 @@ jobs:
         make predict
         make dist name=results.h5
 
-    - name: Booking
-      run: |
-        make ghdown name=book.csv
-        make ghdown name=portfolio.csv
-        make booking
-        make dist name=book.csv
-        make dist name=portfolio.csv
+#     - name: Booking
+#       run: |
+#         make ghdown name=book.csv
+#         make ghdown name=portfolio.csv
+#         make booking
+#         make dist name=book.csv
+#         make dist name=portfolio.csv
 
     - name: Backtrade
       run: |
