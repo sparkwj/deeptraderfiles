@@ -40,14 +40,14 @@ jobs:
         pip install torch==1.7.1 pandas tables matplotlib baostock kaggle plotext
         pip install git+https://github.com/pyatom/pyatom/
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        pip install -e .
     - uses: actions/checkout@v3
       with:
         repository: sparkwj/deeptrader
         ref: ${{env.BRANCH}}
         token: ${{secrets.ACCESS_TOKEN}}
-    - name: The app
+    - name: Setup app
       run: |
+        pip install -e .
         make ghdown name=gtja.app.zip file=gtja.app.zip
         unzip gtja.app.zip
         mv gtja.app /Applications
